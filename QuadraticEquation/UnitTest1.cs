@@ -1,7 +1,8 @@
-namespace QuadraticEquation
+﻿namespace QuadraticEquation
 {
     using NUnit.Framework;
 
+    [TestFixture] //đánh dấu đây là một bộ các unit test.
     public class Tests
     {
         private QuadraticEquation quadraticEquation; 
@@ -13,30 +14,42 @@ namespace QuadraticEquation
         }
 
         [TestCase(0, 2, -4, ExpectedResult = "2")]
-        [TestCase(1, -3, 2, ExpectedResult = "The quadratic has two solutions: 2 and 1")]
+        [TestCase(1, 3, 2, ExpectedResult = "The quadratic has two solutions: 2 and 1")]
         [TestCase(1, -2, 1, ExpectedResult = "1")]
         [TestCase(1, 0, 1, ExpectedResult = "No real roots!")]
+        //[TestCase(-1, -3, -2, ExpectedResult = "The quadratic has two solutions: -2 and -1")]
+
+
+
+        //Test hàm với bộ data tách ra, Kiểm thử nhiều trường hợp với TestCase
         public string Test_CalculateQuadraticEquation(int a, int b, int c)
         {
             return quadraticEquation.CalculateQuadraticEquation(a, b, c);
         }
 
-        [Test]
+        [Test] //TH: PT có 2 nghiệm phân biệt 
         public void Test_RealRoots()
         {
             string result = quadraticEquation.CalculateQuadraticEquation(1, -3, 2);
             Assert.AreEqual("The quadratic has two solutions: 2 and 1", result);
         }
 
-        [Test]
-        public void Test_OneRealRoot()
+        [Test]  //TH: 3 hệ số đều âm có 2 nghiệm phân biệt 
+        public void Test_NegativeCoefficients_TwoRealRoots()
+        {
+            string result = quadraticEquation.CalculateQuadraticEquation(-1, -3, -2);
+            Assert.AreEqual("The quadratic has two solutions: -2 and -1", result);
+        }
+
+        [Test] //TH: PT có 1 nghiệm kép
+		public void Test_OneRealRoot()
         {
             string result = quadraticEquation.CalculateQuadraticEquation(1, -2, 1);
             Assert.AreEqual("1", result);
         }
 
-        [Test]
-        public void Test_NoRealRoots()
+        [Test] //TH: PT vô nghiệm
+		public void Test_NoRealRoots()
         {
             string result = quadraticEquation.CalculateQuadraticEquation(1, 0, 1);
             Assert.AreEqual("No real roots!", result);
@@ -44,8 +57,8 @@ namespace QuadraticEquation
 
        
 
-        [Test]
-        public void Test_LinearEquation()
+        [Test] //TH: PT có nghiệm kép
+		public void Test_LinearEquation()
         {
             string result = quadraticEquation.CalculateQuadraticEquation(0, 2, -4);
             Assert.AreEqual("2", result);
