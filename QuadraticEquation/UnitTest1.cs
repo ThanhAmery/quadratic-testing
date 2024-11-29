@@ -64,15 +64,15 @@
             Assert.AreEqual("2", result);
         }
 
-        [Test]
-        public void Test_DivisionByZero_ThrowsInvalidOperationException()
+        [Test] //TH: PT không hợp lệ, 2 hệ số a và b đều bằng 0
+		public void Test_DivisionByZero_ThrowsInvalidOperationException()
         {
             var ex = Assert.Throws<InvalidOperationException>(() => quadraticEquation.CalculateQuadraticEquation(0, 0, 5));
             Assert.That(ex.Message, Is.EqualTo("Invalid result: expected return!"));
         }
 
-        [Test]
-        public void Test_NoValidEquation_ThrowsInvalidOperationException()
+        [Test] //TH: PT không hợp lệ, 3 hệ số đều bằng 0
+		public void Test_NoValidEquation_ThrowsInvalidOperationException()
         {
             var ex = Assert.Throws<InvalidOperationException>(() => quadraticEquation.CalculateQuadraticEquation(0, 0, 0));
             Assert.That(ex.Message, Is.EqualTo("No valid equation!"));
