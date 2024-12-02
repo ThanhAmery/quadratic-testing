@@ -17,7 +17,7 @@
         [TestCase(1, 3, 2, ExpectedResult = "The quadratic has two solutions: 2 and 1")]
         [TestCase(1, -2, 1, ExpectedResult = "1")]
         [TestCase(1, 0, 1, ExpectedResult = "No real roots!")]
-        //[TestCase(-1, -3, -2, ExpectedResult = "The quadratic has two solutions: -2 and -1")]
+        [TestCase(-1, -3, -2, ExpectedResult = "The quadratic has two solutions: -2 and -1")]
 
 
 
@@ -64,7 +64,7 @@
             Assert.AreEqual("2", result);
         }
 
-        [Test] //TH: PT không hợp lệ, 2 hệ số a và b đều bằng 0
+		[Test] //TH: PT không hợp lệ, 2 hệ số a và b đều bằng 0
 		public void Test_DivisionByZero_ThrowsInvalidOperationException()
         {
             var ex = Assert.Throws<InvalidOperationException>(() => quadraticEquation.CalculateQuadraticEquation(0, 0, 5));
