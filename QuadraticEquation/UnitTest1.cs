@@ -18,11 +18,12 @@
         [TestCase(1, -2, 1, ExpectedResult = "1")]
         [TestCase(1, 0, 1, ExpectedResult = "No real roots!")]
         [TestCase(-1, -3, -2, ExpectedResult = "The quadratic has two solutions: -2 and -1")]
+        [TestCase(0, 0, 5, ExpectedResult = "Invalid result: expected return!")]
 
 
 
-        //Test hàm với bộ data tách ra, Kiểm thử nhiều trường hợp với TestCase
-        public string Test_CalculateQuadraticEquation(int a, int b, int c)
+		//Test hàm với bộ data tách ra, Kiểm thử nhiều trường hợp với TestCase
+		public string Test_CalculateQuadraticEquation(int a, int b, int c)
         {
             return quadraticEquation.CalculateQuadraticEquation(a, b, c);
         }
